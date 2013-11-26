@@ -47,14 +47,14 @@ void testApp::draw(){
 	// 		info about the winding rules is here:
 	//		http://glprogramming.com/red/images/Image128.gif
 	// 
-	ofSetPolyMode(OF_POLY_WINDING_ODD);	// this is the normal mode
-	ofBeginShape();
-		ofVertex(200,135);
-		ofVertex(15,135);
-		ofVertex(165,25);
-		ofVertex(105,200);
-		ofVertex(50,25);
-	ofEndShape();
+	//ofSetPolyMode(OF_POLY_WINDING_ODD);	// this is the normal mode
+	//ofBeginShape();
+	//	ofVertex(200,135);
+	//	ofVertex(15,135);
+	//	ofVertex(165,25);
+	//	ofVertex(105,200);
+	//	ofVertex(50,25);
+	//ofEndShape();
 	
 	
 	//------(b)--------------------------------------
@@ -66,15 +66,15 @@ void testApp::draw(){
 	// 		info about the winding rules is here:
 	//		http://glprogramming.com/red/images/Image128.gif
 	// 
-	ofSetHexColor(0xb5de10);
-	ofSetPolyMode(OF_POLY_WINDING_NONZERO);
-	ofBeginShape();
-		ofVertex(400,135);
-		ofVertex(215,135);
-		ofVertex(365,25);
-		ofVertex(305,200);
-		ofVertex(250,25);
-	ofEndShape();
+	//ofSetHexColor(0xb5de10);
+	//ofSetPolyMode(OF_POLY_WINDING_NONZERO);
+	//ofBeginShape();
+	//	ofVertex(400,135);
+	//	ofVertex(215,135);
+	//	ofVertex(365,25);
+	//	ofVertex(305,200);
+	//	ofVertex(250,25);
+	//ofEndShape();
 	//-------------------------------------
 	
 	
@@ -123,13 +123,13 @@ void testApp::draw(){
 	// 		lots of self intersection, 500 pts is a good stress test
 	// 
 	// 
-	ofSetHexColor(0x0cb0b6);
-	ofSetPolyMode(OF_POLY_WINDING_ODD);
-	ofBeginShape();
-	for (int i = 0; i < 10; i++){
-		ofVertex(ofRandom(650,850), ofRandom(20,200));
-	}
-	ofEndShape();
+	//ofSetHexColor(0x0cb0b6);
+	//ofSetPolyMode(OF_POLY_WINDING_ODD);
+	//ofBeginShape();
+	//for (int i = 0; i < 10; i++){
+	//	ofVertex(ofRandom(650,850), ofRandom(20,200));
+	//}
+	//ofEndShape();
 	//-------------------------------------
 	
 	
@@ -137,24 +137,24 @@ void testApp::draw(){
 	// 
 	// 		use sin cos and time to make some spirally shape
 	//
-	ofPushMatrix();
-		ofTranslate(100,300,0);
-		ofSetHexColor(0xff2220);
-		ofFill();
-		ofSetPolyMode(OF_POLY_WINDING_ODD);
-		ofBeginShape();
-		float angleStep 	= TWO_PI/(100.0f + sin(ofGetElapsedTimef()/5.0f) * 60); 
-		float radiusAdder 	= 0.5f;
-		float radius 		= 0;
-		for (int i = 0; i < 200; i++){
-			float anglef = (i) * angleStep;
-			float x = radius * cos(anglef);
-			float y = radius * sin(anglef); 
-			ofVertex(x,y);
-			radius 	+= radiusAdder; 
-		}
-		ofEndShape(OF_CLOSE);
-	ofPopMatrix();
+	//ofPushMatrix();
+	//	ofTranslate(100,300,0);
+	//	ofSetHexColor(0xff2220);
+	//	ofFill();
+	//	ofSetPolyMode(OF_POLY_WINDING_ODD);
+	//	ofBeginShape();
+	//	float angleStep 	= TWO_PI/(100.0f + sin(ofGetElapsedTimef()/5.0f) * 60);
+	//	float radiusAdder 	= 0.5f;
+	//	float radius 		= 0;
+	//	for (int i = 0; i < 200; i++){
+	//		float anglef = (i) * angleStep;
+	//		float x = radius * cos(anglef);
+	//		float y = radius * sin(anglef);
+	//		ofVertex(x,y);
+	//		radius 	+= radiusAdder;
+	//	}
+	//	ofEndShape(OF_CLOSE);
+	//ofPopMatrix();
 	//-------------------------------------
 	
 	//------(f)--------------------------------------
@@ -165,10 +165,10 @@ void testApp::draw(){
 	// 		items so the curve actually goes through those points
 	//
 
-	ofSetHexColor(0x2bdbe6);
-	ofBeginShape();
+	//ofSetHexColor(0x2bdbe6);
+	//ofBeginShape();
 	
-		for (int i = 0; i < nCurveVertices; i++){
+	//	for (int i = 0; i < nCurveVertices; i++){
 			
 			
 			// sorry about all the if/states here, but to do catmull rom curves
@@ -179,39 +179,39 @@ void testApp::draw(){
 			// for i == nCurveVertices-1 (last point) we call vertex 0 twice
 			// otherwise just normal ofCurveVertex call
 			
-			if (i == 0){
-				ofCurveVertex(curveVertices[0].x, curveVertices[0].y); // we need to duplicate 0 for the curve to start at point 0
-				ofCurveVertex(curveVertices[0].x, curveVertices[0].y); // we need to duplicate 0 for the curve to start at point 0
-			} else if (i == nCurveVertices-1){
-				ofCurveVertex(curveVertices[i].x, curveVertices[i].y);
-				ofCurveVertex(curveVertices[0].x, curveVertices[0].y);	// to draw a curve from pt 6 to pt 0
-				ofCurveVertex(curveVertices[0].x, curveVertices[0].y);	// we duplicate the first point twice
-			} else {
-				ofCurveVertex(curveVertices[i].x, curveVertices[i].y);
-			}
-		}
+	//		if (i == 0){
+	//			ofCurveVertex(curveVertices[0].x, curveVertices[0].y); // we need to duplicate 0 for the curve to start at point 0
+	//			ofCurveVertex(curveVertices[0].x, curveVertices[0].y); // we need to duplicate 0 for the curve to start at point 0
+	//		} else if (i == nCurveVertices-1){
+	//			ofCurveVertex(curveVertices[i].x, curveVertices[i].y);
+	//			ofCurveVertex(curveVertices[0].x, curveVertices[0].y);	// to draw a curve from pt 6 to pt 0
+	//			ofCurveVertex(curveVertices[0].x, curveVertices[0].y);	// we duplicate the first point twice
+	//		} else {
+	//			ofCurveVertex(curveVertices[i].x, curveVertices[i].y);
+	//		}
+	//	}
 		
-	ofEndShape();
+	//ofEndShape();
 	
 	
 	// show a faint the non-curve version of the same polygon:
-	ofEnableAlphaBlending();
-		ofNoFill();
-		ofSetColor(0,0,0,40);
-		ofBeginShape();
-			for (int i = 0; i < nCurveVertices; i++){
-				ofVertex(curveVertices[i].x, curveVertices[i].y);
-			}
-		ofEndShape(true);
+	//ofEnableAlphaBlending();
+	//	ofNoFill();
+	//	ofSetColor(0,0,0,40);
+	//	ofBeginShape();
+	//		for (int i = 0; i < nCurveVertices; i++){
+	//			ofVertex(curveVertices[i].x, curveVertices[i].y);
+	//		}
+	//	ofEndShape(true);
 		
 		
-		ofSetColor(0,0,0,80);
-		for (int i = 0; i < nCurveVertices; i++){
-			if (curveVertices[i].bOver == true) ofFill();
-			else ofNoFill();
-			ofCircle(curveVertices[i].x, curveVertices[i].y,4);
-		}
-	ofDisableAlphaBlending();
+	//	ofSetColor(0,0,0,80);
+	//	for (int i = 0; i < nCurveVertices; i++){
+	//		if (curveVertices[i].bOver == true) ofFill();
+	//		else ofNoFill();
+	//		ofCircle(curveVertices[i].x, curveVertices[i].y,4);
+	//	}
+	//ofDisableAlphaBlending();
 	//-------------------------------------
 	
 	
@@ -224,33 +224,33 @@ void testApp::draw(){
 	//		(two control points and the final bezier point)
 	//		
 	
-	float x0 = 500;
-	float y0 = 300;
-	float x1 = 550+50*cos(ofGetElapsedTimef()*1.0f);
-	float y1 = 300+100*sin(ofGetElapsedTimef()/3.5f);
-	float x2 = 600+30*cos(ofGetElapsedTimef()*2.0f);
-	float y2 = 300+100*sin(ofGetElapsedTimef());
-	float x3 = 650;
-	float y3 = 300;
+	//float x0 = 500;
+	//float y0 = 300;
+	//float x1 = 550+50*cos(ofGetElapsedTimef()*1.0f);
+	//float y1 = 300+100*sin(ofGetElapsedTimef()/3.5f);
+	//float x2 = 600+30*cos(ofGetElapsedTimef()*2.0f);
+	//float y2 = 300+100*sin(ofGetElapsedTimef());
+	//float x3 = 650;
+	//float y3 = 300;
 	
 	
 	
-	ofFill();
-	ofSetHexColor(0xFF9933);
-	ofBeginShape();
-	ofVertex(x0,y0);
-	ofBezierVertex(x1,y1,x2,y2,x3,y3);
-	ofEndShape();
+	//ofFill();
+	//ofSetHexColor(0xFF9933);
+	//ofBeginShape();
+	//ofVertex(x0,y0);
+	//ofBezierVertex(x1,y1,x2,y2,x3,y3);
+	//ofEndShape();
 	
 	
-	ofEnableAlphaBlending();
-		ofFill();
-		ofSetColor(0,0,0,40);
-		ofCircle(x0,y0,4);
-		ofCircle(x1,y1,4);
-		ofCircle(x2,y2,4);
-		ofCircle(x3,y3,4);
-	ofDisableAlphaBlending();
+	//ofEnableAlphaBlending();
+	//	ofFill();
+	//	ofSetColor(0,0,0,40);
+	//	ofCircle(x0,y0,4);
+	//	ofCircle(x1,y1,4);
+	//	ofCircle(x2,y2,4);
+	//	ofCircle(x3,y3,4);
+	//ofDisableAlphaBlending();
 	
 	
 	
@@ -261,24 +261,24 @@ void testApp::draw(){
 	// 		with ofNextContour we can create multi-contour shapes
 	// 		this allows us to draw holes, for example... 
 	//
-	ofFill();
-	ofSetHexColor(0xd3ffd3);
-	ofRect(80,480,140,70);
-	ofSetHexColor(0xff00ff);
+	//ofFill();
+	//ofSetHexColor(0xd3ffd3);
+	//ofRect(80,480,140,70);
+	//ofSetHexColor(0xff00ff);
 	
-	ofBeginShape();
+	//ofBeginShape();
 		
-		ofVertex(100,500);
-		ofVertex(180,550);
-		ofVertex(100,600);
+	//	ofVertex(100,500);
+	//	ofVertex(180,550);
+	//	ofVertex(100,600);
 		
-		ofNextContour(true);
+	//	ofNextContour(true);
+	//
+	//	ofVertex(120,520);
+	//	ofVertex(160,550);
+	//	ofVertex(120,580);
 		
-		ofVertex(120,520);
-		ofVertex(160,550);
-		ofVertex(120,580);
-		
-	ofEndShape(true);
+	//ofEndShape(true);
 	//-------------------------------------
 	
 	
@@ -297,103 +297,102 @@ void testApp::draw(){
 	// 		info about the winding rules is here:
 	//		http://glprogramming.com/red/images/Image128.gif
 	// 
-	ofNoFill();
+	//ofNoFill();
 	
 	
-	ofPushMatrix();
+	//ofPushMatrix();
 	
-	ofSetPolyMode(OF_POLY_WINDING_ODD);
+	//ofSetPolyMode(OF_POLY_WINDING_ODD);
 	
-	ofBeginShape();
+	//ofBeginShape();
 		
-		ofVertex(300,500);
-		ofVertex(380,550);
-		ofVertex(300,600);
+	//	ofVertex(300,500);
+	//	ofVertex(380,550);
+	//	ofVertex(300,600);
 		
-		ofNextContour(true);
+	//	ofNextContour(true);
 		
-		for (int i = 0; i < 20; i++){
-			float anglef = ((float)i / 19.0f) * TWO_PI;
-			float x = 340 + 30 * cos(anglef);
-			float y = 550 + 30 * sin(anglef); 
-			ofVertex(x,y);
-			radius 	+= radiusAdder; 
-		}
+	//	for (int i = 0; i < 20; i++){
+	//		float anglef = ((float)i / 19.0f) * TWO_PI;
+	//		float x = 340 + 30 * cos(anglef);
+	//		float y = 550 + 30 * sin(anglef);
+	//		ofVertex(x,y);
+	//		radius 	+= radiusAdder;
+	//	}
 		
 
-	ofEndShape(true);
+	//ofEndShape(true);
 	
-	ofTranslate(100,0,0);
+	//ofTranslate(100,0,0);
 	
-	ofSetPolyMode(OF_POLY_WINDING_NONZERO);	
-	ofBeginShape();
+	//ofSetPolyMode(OF_POLY_WINDING_NONZERO);
+	//ofBeginShape();
+	//---
+	//	ofVertex(300,500);
+	//	ofVertex(380,550);
+	//	ofVertex(300,600);
 		
-		ofVertex(300,500);
-		ofVertex(380,550);
-		ofVertex(300,600);
+	//	ofNextContour(true);
 		
-		ofNextContour(true);
+	//	for (int i = 0; i < 20; i++){
+	//		float anglef = ((float)i / 19.0f) * TWO_PI;
+	//		float x = 340 + 30 * cos(anglef);
+	//		float y = 550 + 30 * sin(anglef);
+	//		ofVertex(x,y);
+	//		radius 	+= radiusAdder;
+	//	}
 		
-		for (int i = 0; i < 20; i++){
-			float anglef = ((float)i / 19.0f) * TWO_PI;
-			float x = 340 + 30 * cos(anglef);
-			float y = 550 + 30 * sin(anglef); 
-			ofVertex(x,y);
-			radius 	+= radiusAdder; 
-		}
-		
-	ofEndShape(true);
+	//ofEndShape(true);
 	
-	ofTranslate(100,0,0);
-	ofSetPolyMode(OF_POLY_WINDING_ABS_GEQ_TWO);
-	ofBeginShape();
-		ofVertex(300,500);
-		ofVertex(380,550);
-		ofVertex(300,600);
-		ofNextContour(true);
+	//ofTranslate(100,0,0);
+	//ofSetPolyMode(OF_POLY_WINDING_ABS_GEQ_TWO);
+	//ofBeginShape();
+	//	ofVertex(300,500);
+	//	ofVertex(380,550);
+	//	ofVertex(300,600);
+	//	ofNextContour(true);
+	//
+	//	for (int i = 0; i < 20; i++){
+	//		float anglef = ((float)i / 19.0f) * TWO_PI;
+	//		float x = 340 + 30 * cos(anglef);
+	//		float y = 550 + 30 * sin(anglef);
+	//		ofVertex(x,y);
+	//		radius 	+= radiusAdder;
+	//	}
 		
-		for (int i = 0; i < 20; i++){
-			float anglef = ((float)i / 19.0f) * TWO_PI;
-			float x = 340 + 30 * cos(anglef);
-			float y = 550 + 30 * sin(anglef); 
-			ofVertex(x,y);
-			radius 	+= radiusAdder; 
-		}
 		
-		
-	ofEndShape(true);
+	//ofEndShape(true);
 	
-	ofPopMatrix();
-
+	//ofPopMatrix();
 	//-------------------------------------
 	
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("(a) star\nwinding rule odd", 20,210);
+	//ofSetHexColor(0x000000);
+	//ofDrawBitmapString("(a) star\nwinding rule odd", 20,210);
 	
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("(b) star\nwinding rule nonzero", 220,210);
+	//ofSetHexColor(0x000000);
+	//ofDrawBitmapString("(b) star\nwinding rule nonzero", 220,210);
 	
 	ofSetHexColor(0x000000);
 	ofDrawBitmapString("(c) dynamically\ncreated shape", 420,210);
 	
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("(d) random points\npoly", 670,210);
+	//ofSetHexColor(0x000000);
+	//ofDrawBitmapString("(d) random points\npoly", 670,210);
 	
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("(e) fun with sin/cos", 20,410);
+	//ofSetHexColor(0x000000);
+	//ofDrawBitmapString("(e) fun with sin/cos", 20,410);
 	
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("(f) ofCurveVertex\nuses catmull rom\nto make curved shapes", 220,410);
+	//ofSetHexColor(0x000000);
+	//ofDrawBitmapString("(f) ofCurveVertex\nuses catmull rom\nto make curved shapes", 220,410);
 	
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("(g) ofBezierVertex\nuses bezier to draw curves", 460,410);
+	//ofSetHexColor(0x000000);
+	//ofDrawBitmapString("(g) ofBezierVertex\nuses bezier to draw curves", 460,410);
 	
 	
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("(h) ofNextContour\nallows for holes", 20,610);
+	//ofSetHexColor(0x000000);
+	//ofDrawBitmapString("(h) ofNextContour\nallows for holes", 20,610);
 	
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("(i) ofNextContour\ncan even be used for CSG operations\nsuch as union and intersection", 260,620);
+	//ofSetHexColor(0x000000);
+	//ofDrawBitmapString("(i) ofNextContour\ncan even be used for CSG operations\nsuch as union and intersection", 260,620);
 	
 }
 
